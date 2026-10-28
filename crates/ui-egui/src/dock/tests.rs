@@ -753,6 +753,8 @@ fn click(h: &mut Harness<'static, PhotocraftApp>, p: Pos2) {
     h.run_steps(3);
 }
 
+/// Two primary clicks at `p`, one frame apart, so egui reads them as a double-click (the
+/// harness steps at 60 fps, well inside the double-click delay).
 fn double_click(h: &mut Harness<'static, PhotocraftApp>, p: Pos2) {
     h.event(egui::Event::PointerMoved(p));
     h.run_steps(1);
